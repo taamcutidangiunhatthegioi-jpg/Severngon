@@ -13,4 +13,16 @@ server.listen(PORT, () => {
 
 // 2. ĐOẠN CODE CHẠY BOT MINECRAFT CỦA BẠN (DÁN XUỐNG DƯỚI NÀY)
 // Hãy dán toàn bộ code Bot cũ (mineflayer) của bạn vào ngay dưới dòng này nhé!
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
 
+app.get('/', (req, res) => {
+  res.send('Server MagmaNode đang chạy 24/7 ngon lành!');
+});
+
+app.listen(port, () => {
+  console.log(`Server đang mở tại port ${port}`);
+});
+
+// --- BẠN CÓ THỂ DÁN CODE BOT DISCORD HOẶC CODE CỦA BẠN VÀO DƯỚI ĐÂY ---
