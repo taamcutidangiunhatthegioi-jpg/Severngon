@@ -1,13 +1,14 @@
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 3000;
+const http = require('http');
+setInterval(() => {
+  http.get(`http://localhost:${process.env.PORT || 3000}`);
+}, 240000);
 
-app.get('/', (req, res) => {
-  res.send('Server MagmaNode đang chạy 24/7 ngon lành!');
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Bot dang hoat dong!\n');
 });
 
-app.listen(port, () => {
-  console.log(`Server đang mở tại port ${port}`);
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+  console.log(`Server web dang chay tai port ${PORT}`);
 });
-
-// --- BẠN CÓ THỂ DÁN CODE BOT DISCORD HOẶC CODE CỦA BẠN VÀO DƯỚI ĐÂY ---
